@@ -1,35 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Fade } from 'react-reveal';
+import { motion } from 'framer-motion';
 
-function Section({ title, description, leftBtnText, rightBtnText,backgroundImage }) {
-  console.log(title)
+function Section({ title, description, leftBtnText, rightBtnText, backgroundImage }) {
+  console.log(title);
   return (
     <Wrap style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <Fade bottom> 
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </ItemText>
-      </Fade>
+      <MotionDiv initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </MotionDiv>
       <Buttons>
-        <Fade bottom>
-
-       
-        <ButtonGroup>
-          <LeftButton>{leftBtnText}
-          </LeftButton>
-        {rightBtnText&&
-            <RightButton>{rightBtnText}</RightButton>
-          
-        }
-          
-          
-         
-        
-        </ButtonGroup>
-        </Fade>
-        <DownArrow src="\images\down-arrow.svg "/>
+        <MotionDiv initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+          </ButtonGroup>
+        </MotionDiv>
+        <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
     </Wrap>
   );
@@ -50,6 +40,10 @@ const Wrap = styled.div`
   /* Add any additional styles you need */
 `;
 
+const MotionDiv = styled(motion.div)`
+  /* Add any additional styles for MotionDiv */
+`;
+
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
@@ -58,8 +52,8 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 30px;
-  @media (max-width:768px){
-    flex-direction:column;
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
@@ -75,22 +69,23 @@ const LeftButton = styled.div`
   opacity: 0.85;
   text-transform: uppercase;
   cursor: pointer;
-  margin:8px;
+  margin: 8px;
 `;
 
 const RightButton = styled(LeftButton)`
   /* Add any additional styles for RightButton */
-  background:white;
-  opacity:0.65;
-  color:black;
+  background: white;
+  opacity: 0.65;
+  color: black;
 `;
 
 const DownArrow = styled.img`
   margin-top: 20px;
   height: 40px;
-  animation:animateDown infinite 1.5s;
-  overflow-x:hidden;
-
+  animation: animateDown infinite 1.5s;
+  overflow-x: hidden;
 `;
 
-const Buttons=styled.div``
+const Buttons = styled.div`
+  /* Add any additional styles for Buttons */
+`;
