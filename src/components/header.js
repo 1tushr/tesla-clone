@@ -6,20 +6,20 @@ function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
   return (
     <Container>
-      <a>
+      <p>
         <img src="/images/logo.svg" alt="Logo" />
-      </a>
+      </p>
 
       <Menu>
-        <a href="#">Model S</a>
-        <a href="#">Model 3</a>
-        <a href="#">Model X</a>
-        <a href="#">Model Y</a>
+        <p >Model S</p>
+        <p>Model 3</p>
+        <p>Model X</p>
+        <p>Model Y</p>
       </Menu>
 
       <RightMenu>
-        <a href="#">Shop</a>
-        <a href="#">Tesla Account</a>
+        <p >Shop</p>
+        <p >Tesla Account</p>
         <CustomMenu onClick={() => setBurgerStatus(true)} />
       </RightMenu>
 
@@ -29,19 +29,19 @@ function Header() {
         </CloseWrapper>
 
         <li>
-          <a href="#">Existing Inventory</a>
+          <p>Existing Inventory</p>
         </li>
         <li>
-          <a href="#">Used Inventory</a>
+          <p>Used Inventory</p>
         </li>
         <li>
-          <a href="#">Trade-in</a>
+          <p>Trade-in</p>
         </li>
         <li>
-          <a href="#">Test Drive</a>
+          <p>Test Drive</p>
         </li>
         <li>
-          <a href="#">Powerwall</a>
+          <p>Powerwall</p>
         </li>
       </BurgerNav>
     </Container>
@@ -68,9 +68,9 @@ const Menu = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
-  margin-left:10rem;
+  margin-left: 10rem;
 
-  a {
+  p {
     font-weight: 600;
     text-transform: uppercase;
     padding: 0 10px;
@@ -86,7 +86,7 @@ const RightMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  a {
+  p {
     font-weight: 600;
     text-transform: uppercase;
     margin-right: 10px;
@@ -117,7 +117,7 @@ const BurgerNav = styled.div`
     padding: 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-    a {
+    p {
       font-weight: 600;
     }
   }
